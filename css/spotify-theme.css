@@ -1,0 +1,422 @@
+.ios-status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.time {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI";
+}
+
+.status-icons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.status-icons svg {
+    opacity: 0.9;
+}
+
+/* Ensure proper spacing between icons */
+.cellular-icon {
+    margin-right: 1px;
+}
+
+.wifi-icon {
+    margin-right: 1px;
+}
+
+/* Adjust top padding of preview to account for status bar */
+.spotify-preview {
+    width: 400px;
+    min-height: 600px; /* Changed to min-height */
+    height: auto; /* Added to allow content to expand */
+    background: #121212;
+    border-radius: 8px;
+    position: relative;
+    overflow: visible; /* Changed from hidden */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; /* Center horizontally */
+    padding-top: 44px;  /* Add space for status bar */
+}
+
+.album-content {
+    position: relative;
+    z-index: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.album-art {
+    width: 75%;  /* Increased from 65% to 75% */
+    max-width: 320px;  /* Increased max-width to accommodate larger percentage */
+    aspect-ratio: 1/1;
+    margin: 24px auto 24px auto;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+    display: block;
+}
+
+.album-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;  /* Changed from 70% to 100% for full coverage */
+    background: var(--album-color, rgba(20, 20, 20, 0.8));
+    filter: blur(100px);  /* Increased blur for softer effect */
+    opacity: 0.7;  /* Adjusted opacity */
+    mask-image: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 40%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 40%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.album-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    margin: 16px 0 8px 0;
+}
+
+.artist-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.artist-profile {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.artist-name {
+    color: #fff;
+    font-size: 14px;
+}
+
+.album-year {
+    color: #b3b3b3;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.album-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary-text);
+    font-size: 14px;
+    margin: 4px 0 24px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 24px 0;
+}
+
+.control-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.control-icon:hover {
+    opacity: 1;
+}
+
+.play-button {
+    width: 56px;
+    height: 56px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.song-list {
+    margin-top: 32px;
+    width: 100%;
+    padding-bottom: 24px; /* Add padding at bottom */
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.song-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.song-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.song-title-input,
+.song-artist-input {
+    background: transparent;
+    border: none;
+    color: var(--primary-text);
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.song-artist-input {
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+.song-title-input:focus,
+.song-artist-input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+.remove-song {
+    background: transparent;
+    border: none;
+    color: var(--secondary-text);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 4px;
+    opacity: 0.7;
+}
+
+.remove-song:hover {
+    opacity: 1;
+    color: var(--primary-text);
+}
+
+/* Preview song list styles */
+.preview-song-item {
+    display: flex;
+    padding: 12px 0;
+    color: var(--primary-text);
+    width: 100%;
+}
+
+.preview-song-item .song-info {
+    width: 100%;
+}
+
+.preview-song-item .song-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.song-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.preview-song-item .song-title {
+    font-size: 14px;
+    color: var(--primary-text);
+    text-align: left;
+}
+
+.preview-song-item .song-artist {
+    font-size: 12px;
+    color: var(--secondary-text);
+    text-align: left;
+}
+
+.more-options {
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: var(--secondary-text);
+    padding-left: 8px;
+}
+
+.preview-song-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-selector {
+    position: absolute;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    z-index: 100;
+}
+
+.profile-option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.profile-option:hover {
+    border-color: var(--accent-color);
+}
+
+.color-picker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.color-picker-content {
+    background: var(--glass-bg);
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.control-group {
+    margin-bottom: 16px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.profile-option {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.profile-option:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.profile-option.selected {
+    border-color: var(--accent-color);
+}
+
+.color-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.song-list-preview {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 12px;
+}
+
+.primary-button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Ensure text elements are full width and left-aligned */
+.album-title,
+.artist-info,
+.album-meta,
+.song-list {
+    width: 100%;
+    text-align: left;
+}
+
+.artist-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

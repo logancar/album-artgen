@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Cover Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/spotify-theme.css">
+</head>
+<body class="hybrid-theme">
+    <!-- Landing Page -->
+    <div id="landingPage" class="landing-container">
+        <h1>Album Cover Generator</h1>
+        <p class="description">Create stunning album artwork in your favorite streaming platform's style. Perfect for your musical projects, concept albums, or creative expressions.</p>
+        
+        <div class="theme-chooser">
+            <div class="theme-card spotify" onclick="switchTheme('spotify')">
+                <img src="assets/spotify-logo.svg" alt="Spotify">
+                <h2>Spotify Style</h2>
+                <p>Clean, modern, and bold designs</p>
+            </div>
+            <div class="theme-card apple" onclick="switchTheme('apple')">
+                <img src="assets/apple-music-logo.svg" alt="Apple Music">
+                <h2>Apple Music Style</h2>
+                <p>Elegant, minimal, and refined aesthetics</p>
+            </div>
+        </div>
+
+        <button class="help-btn" onclick="showHelp()">?</button>
+    </div>
+
+    <!-- Main App (Initially Hidden) -->
+    <div id="mainApp" class="container hidden">
+        <div class="controls">
+            <div class="back-btn" onclick="showLanding()">← Back to Themes</div>
+            
+            <!-- File Upload -->
+            <div class="control-group">
+                <label>Album Artwork</label>
+                <input type="file" id="albumArtUpload" accept="image/*">
+            </div>
+
+            <!-- Text Inputs -->
+            <div class="control-group">
+                <label>Album Title</label>
+                <input type="text" id="albumTitle" placeholder="Enter album title">
+            </div>
+
+            <div class="control-group">
+                <label>Artist Name</label>
+                <input type="text" id="artistName" placeholder="Enter artist name">
+            </div>
+
+            <!-- Artist Profile Selection -->
+            <div class="control-group">
+                <label>Artist Profile</label>
+                <div class="profile-grid">
+                    <!-- Profile options will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Color Customization -->
+            <div class="control-group">
+                <label>Background Color</label>
+                <div class="color-controls">
+                    <button id="extractColor">Extract from Image</button>
+                    <input type="color" id="customColor">
+                </div>
+            </div>
+
+            <!-- Song List Controls -->
+            <div class="control-group">
+                <label>Songs</label>
+                <button id="addSong">+ Add Song</button>
+                <div class="song-list-preview">
+                    <!-- Generated songs will appear here -->
+                </div>
+            </div>
+
+            <button id="downloadBtn" class="primary-button">Download Image</button>
+        </div>
+
+        <div class="preview">
+            <div id="spotifyPreview" class="spotify-preview">
+                <!-- Add iOS status bar -->
+                <div class="ios-status-bar">
+                    <div class="time">10:27</div>
+                    <div class="status-icons">
+                        <svg class="cellular-icon" width="18" height="12" viewBox="0 0 18 12">
+                            <path fill="white" d="M16 0h-2v12h2V0zm-4 3h-2v9h2V3zm-4 3h-2v6h2V6zm-4 3H2v3h2V9z"/>
+                        </svg>
+                        <svg class="wifi-icon" width="16" height="12" viewBox="0 0 16 12">
+                            <path fill="white" d="M8 9.75l2.5-3C9.9 6.27 9 6 8 6s-1.9.27-2.5.75L8 9.75z M13.5 5.25C12.03 4.18 10.1 3.5 8 3.5s-4.03.68-5.5 1.75L8 12l5.5-6.75z"/>
+                        </svg>
+                        <svg class="battery-icon" width="25" height="12" viewBox="0 0 25 12">
+                            <rect fill="white" x="2" y="2" width="19" height="8" rx="1"/>
+                            <rect fill="white" x="21" y="4" width="2" height="4"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="album-background"></div>
+                <div class="album-content">
+                    <img id="albumArt" class="album-art" src="assets/placeholder-album.png" alt="Album Art">
+                    <h1 class="album-title" id="albumTitleDisplay">Album Title</h1>
+                    
+                    <div class="artist-info">
+                        <img id="artistProfile" class="artist-profile" src="assets/profiles/geometric-1.svg" alt="Artist Profile">
+                        <h2 class="artist-name" id="artistNameDisplay">Artist Name</h2>
+                    </div>
+                    
+                    <div class="album-meta">
+                        <span>Album</span>
+                        <span>•</span>
+                        <span>2024</span>
+                    </div>
+                    
+                    <div class="controls-bar">
+                        <div class="player-controls">
+                            <!-- SVG icons from spotify-icons.svg -->
+                        </div>
+                    </div>
+                    
+                    <div id="songList" class="song-list">
+                        <!-- Songs will be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/html2canvas/dist/html2canvas.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
